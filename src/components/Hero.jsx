@@ -1,5 +1,6 @@
 import { Btn } from "./shared/UI.jsx";
 import CapturingMachines from '../photos/DSC01250.jpeg';
+import scrollTo from "../utils/scrollTo.js";
 
 export default function Hero() {
   return (
@@ -106,10 +107,7 @@ export default function Hero() {
         >
           <Btn
             href="#portfolio"
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" });
-            }}
+            onClick={scrollTo}
           >
             View Portfolio
           </Btn>
@@ -117,10 +115,7 @@ export default function Hero() {
             Book a Session
           </Btn> */}
           <Btn href="#contact"
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-            }}
+            onClick={scrollTo}
             outline
             style={{
             borderColor: "var(--gold)",

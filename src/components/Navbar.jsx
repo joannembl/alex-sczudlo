@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { TABS } from "../constants/index.js";
+import scrollTo from "../utils/scrollTo.js";
 
 /* ─── Hook: detect mobile breakpoint ──────────────────────── */
 function useIsMobile(breakpoint = 768) {
@@ -75,12 +76,12 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
     { href: "#contact", label: "Contact" },
   ];
 
-  const scrollTo = (e) => {
-    e.preventDefault();
-    const id = e.currentTarget.getAttribute("href").replace("#", "");
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    setMobileOpen(false);
-  };
+  // const scrollTo = (e) => {
+  //   e.preventDefault();
+  //   const id = e.currentTarget.getAttribute("href").replace("#", "");
+  //   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  //   setMobileOpen(false);
+  // };
 
   return (
     <>
