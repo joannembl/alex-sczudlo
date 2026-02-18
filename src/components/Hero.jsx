@@ -106,7 +106,10 @@ export default function Hero() {
         >
           <Btn
             href="#portfolio"
-            onClick={(e) => { e.preventDefault(); document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" }); }}
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" });
+            }}
           >
             View Portfolio
           </Btn>
@@ -114,7 +117,10 @@ export default function Hero() {
             Book a Session
           </Btn> */}
           <Btn href="#contact"
-            onClick={(e) => { e.preventDefault(); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+            }}
             outline
             style={{
             borderColor: "var(--gold)",

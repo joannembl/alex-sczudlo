@@ -75,8 +75,9 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
     { href: "#contact", label: "Contact" },
   ];
 
-  const scrollTo = (e, id) => {
+  const scrollTo = (e) => {
     e.preventDefault();
+    const id = e.currentTarget.getAttribute("href").replace("#", "");
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setMobileOpen(false);
   };
@@ -87,7 +88,7 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
         {/* Logo */}
         <a
           href="#hero"
-          onClick={(e) => { e.preventDefault(); document.getElementById("hero")?.scrollIntoView({ behavior: "smooth" }); }}
+          onClick={scrollTo}
           style={{
             fontFamily: "var(--display)",
             fontSize: isMobile ? 20 : 28,
@@ -106,7 +107,7 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
               <li key={href}>
                 <a
                   href={href}
-                  onClick={(e) => scrollTo(e, href)}
+                  onClick={scrollTo}
                   style={linkStyle}
                   onMouseEnter={(e) => (e.target.style.color = "var(--gold)")}
                   onMouseLeave={(e) => (e.target.style.color = "var(--lgray)")}

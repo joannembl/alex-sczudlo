@@ -55,6 +55,7 @@ export const Btn = ({ children, outline, href, onClick, style }) => {
     ...style,
   };
 
-  if (href) return <a href={href} style={base}>{children}</a>;
+  if (href) return <a href={href} onClick={onClick} style={base}>{children}</a>;
   return <button onClick={onClick} style={base}>{children}</button>;
 };
+
