@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/alex-sczudlo/static/css/main.64204b4e.css",
+    "main.js": "/alex-sczudlo/static/js/main.bd9f5228.js",
+    "static/js/453.36f2fc87.chunk.js": "/alex-sczudlo/static/js/453.36f2fc87.chunk.js",
+    "static/media/DSC00405.jpeg": "/alex-sczudlo/static/media/DSC00405.e9d2e5bb084f44b43059.jpeg",
+    "static/media/DSC05323.jpeg": "/alex-sczudlo/static/media/DSC05323.955a17f5da85b8415d1c.jpeg",
+    "static/media/DSC05304.jpeg": "/alex-sczudlo/static/media/DSC05304.d326b512d17f99a6aede.jpeg",
+    "static/media/DSC01250.jpeg": "/alex-sczudlo/static/media/DSC01250.62e839f4743858fcb734.jpeg",
+    "static/media/DSC00436.jpeg": "/alex-sczudlo/static/media/DSC00436.4f020b7828da968c998f.jpeg",
+    "static/media/DSC01370.jpeg": "/alex-sczudlo/static/media/DSC01370.fbba239c28b49efaa04e.jpeg",
+    "static/media/DSC08185.jpeg": "/alex-sczudlo/static/media/DSC08185.e1ffd8d7091b6f60ce39.jpeg",
+    "static/media/DSC00884.jpeg": "/alex-sczudlo/static/media/DSC00884.bdf13749bca87c5af255.jpeg",
+    "static/media/AstonMartin.jpg": "/alex-sczudlo/static/media/AstonMartin.a5b57bf207f84dabde6a.jpg",
+    "static/media/PortraitShot.avif": "/alex-sczudlo/static/media/PortraitShot.98d2febe63f791f202cc.avif",
+    "index.html": "/alex-sczudlo/index.html",
+    "main.64204b4e.css.map": "/alex-sczudlo/static/css/main.64204b4e.css.map",
+    "main.bd9f5228.js.map": "/alex-sczudlo/static/js/main.bd9f5228.js.map",
+    "453.36f2fc87.chunk.js.map": "/alex-sczudlo/static/js/453.36f2fc87.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.64204b4e.css",
+    "static/js/main.bd9f5228.js"
+  ]
+}
