@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import { TABS } from "../constants/index.js";
-import scrollTo from "../utils/scrollTo.js";
 import { Link } from "react-router-dom";
 
 /* ─── Hook: detect mobile breakpoint ──────────────────────── */
@@ -20,7 +18,6 @@ function useIsMobile(breakpoint = 768) {
 
 export default function Navbar({ mobileOpen, setMobileOpen }) {
   const [scrolled, setScrolled] = useState(false);
-  const [dropOpen, setDropOpen] = useState(false);
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -51,14 +48,15 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
   };
 
   const linkStyle = {
-    fontFamily: "var(--body)",
-    fontSize: 11,
-    fontWeight: 500,
-    letterSpacing: "2.5px",
+    fontFamily: "var(--display)",   // ← change from var(--body) to var(--display)
+    fontSize: 14,                    // ← slightly larger to match
+    letterSpacing: "4px",            // ← wider spacing
     textTransform: "uppercase",
     color: "var(--lgray)",
     cursor: "pointer",
     transition: "color 0.25s",
+    background: "none",
+    border: "none",
   };
 
   const navLinks = [
@@ -77,13 +75,6 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
     { to: "/contact", label: "Contact"   },
   ];
 
-  // const scrollTo = (e) => {
-  //   e.preventDefault();
-  //   const id = e.currentTarget.getAttribute("href").replace("#", "");
-  //   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  //   setMobileOpen(false);
-  // };
-
   return (
     <>
       <nav style={navStyle}>
@@ -99,19 +90,6 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
         >
           Alex Sczudlo
         </Link>
-        {/* <a
-          href="#hero"
-          onClick={scrollTo}
-          style={{
-            fontFamily: "var(--display)",
-            fontSize: isMobile ? 20 : 28,
-            letterSpacing: 3,
-            color: "var(--gold)",
-            flexShrink: 0,
-          }}
-        >
-          Alex Sczudlo
-        </a> */}
 
         {/* Desktop links */}
         {!isMobile && (
@@ -121,78 +99,14 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
               <Link
                 key={to}
                 to={to}
-                onClick={() => setMobileOpen(false)}
-                style={{
-                  fontFamily: "var(--display)",
-                  fontSize: 36,
-                  letterSpacing: 4,
-                  color: "var(--white)",
-                  textTransform: "uppercase",
-                }}
+                style={linkStyle}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--gold)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--lgray)")}
               >
                 {label}
               </Link>
             </li>
           ))}
-
-            {/* Pricing dropdown */}
-            {/* <li
-              style={{ position: "relative" }}
-              onMouseEnter={() => setDropOpen(true)}
-              onMouseLeave={() => setDropOpen(false)}
-            >
-              <a
-                href="#pricing"
-                style={linkStyle}
-                onMouseEnter={(e) => (e.target.style.color = "var(--gold)")}
-                onMouseLeave={(e) => (e.target.style.color = "var(--lgray)")}
-              >
-                Pricing ▾
-              </a>
-              {dropOpen && (
-                <ul
-                  style={{
-                    position: "absolute",
-                    top: 28,
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    background: "rgba(17,17,17,0.98)",
-                    border: "1px solid rgba(201,168,76,0.2)",
-                    minWidth: 220,
-                    padding: "10px 0",
-                    listStyle: "none",
-                    zIndex: 100,
-                  }}
-                >
-                  {TABS.map((t) => (
-                    <li key={t.id}>
-                      <a
-                        href="#pricing"
-                        style={{
-                          display: "block",
-                          padding: "10px 22px",
-                          fontSize: 11,
-                          letterSpacing: 2,
-                          textTransform: "uppercase",
-                          color: "var(--lgray)",
-                          transition: "color 0.2s",
-                        }}
-                        onMouseEnter={(e) => {
-                          e.target.style.color = "var(--gold)";
-                          e.target.style.background = "rgba(201,168,76,0.06)";
-                        }}
-                        onMouseLeave={(e) => {
-                          e.target.style.color = "var(--lgray)";
-                          e.target.style.background = "transparent";
-                        }}
-                      >
-                        {t.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li> */}
           </ul>
         )}
 
@@ -252,10 +166,10 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
             animation: "fadeIn 0.2s ease",
           }}
         >
-          {mobileLinks.map(({ href, label }) => (
-            <a
-              key={href}
-              href={href}
+          {mobileLinks.map(({ to, label }) => (
+            <Link
+              key={to}
+              to={to}
               onClick={() => setMobileOpen(false)}
               style={{
                 fontFamily: "var(--display)",
@@ -265,11 +179,11 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
                 textTransform: "uppercase",
                 transition: "color 0.2s",
               }}
-              onMouseEnter={(e) => (e.target.style.color = "var(--gold)")}
-              onMouseLeave={(e) => (e.target.style.color = "var(--white)")}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--gold)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--white)")}
             >
               {label}
-            </a>
+            </Link>
           ))}
           <a
             href="https://instagram.com/automotive_alex"
