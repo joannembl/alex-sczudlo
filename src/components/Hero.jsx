@@ -104,11 +104,19 @@ export default function Hero() {
             animation: "fadeUp 0.8s 0.45s ease both",
           }}
         >
-          <Btn href="#portfolio">View Portfolio</Btn>
+          <Btn
+            href="#portfolio"
+            onClick={(e) => { e.preventDefault(); document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" }); }}
+          >
+            View Portfolio
+          </Btn>
           {/* <Btn href="#contact" outline>
             Book a Session
           </Btn> */}
-          <Btn href="#contact" outline style={{
+          <Btn href="#contact"
+            onClick={(e) => { e.preventDefault(); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}
+            outline
+            style={{
             borderColor: "var(--gold)",
             color: "var(--white)",
             background: "rgba(0,0,0,0.35)",

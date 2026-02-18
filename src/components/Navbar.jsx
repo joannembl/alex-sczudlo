@@ -75,12 +75,19 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
     { href: "#contact", label: "Contact" },
   ];
 
+  const scrollTo = (e, id) => {
+    e.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setMobileOpen(false);
+  };
+
   return (
     <>
       <nav style={navStyle}>
         {/* Logo */}
         <a
           href="#hero"
+          onClick={(e) => { e.preventDefault(); document.getElementById("hero")?.scrollIntoView({ behavior: "smooth" }); }}
           style={{
             fontFamily: "var(--display)",
             fontSize: isMobile ? 20 : 28,
@@ -99,6 +106,7 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
               <li key={href}>
                 <a
                   href={href}
+                  onClick={(e) => scrollTo(e, href)}
                   style={linkStyle}
                   onMouseEnter={(e) => (e.target.style.color = "var(--gold)")}
                   onMouseLeave={(e) => (e.target.style.color = "var(--lgray)")}
