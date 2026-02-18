@@ -24,7 +24,7 @@ export default function App() {
   }, []);
 
   return (
-    <HashRouter basename="/alex-sczudlo">
+    <HashRouter basename="/">
         <ScrollToTop />
         <div style={{ minHeight: "100vh", background: "var(--black)" }}>
           <Navbar mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
