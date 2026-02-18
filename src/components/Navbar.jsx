@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { TABS } from "../constants/index.js";
 import scrollTo from "../utils/scrollTo.js";
+import { Link } from "react-router-dom";
 
 /* ─── Hook: detect mobile breakpoint ──────────────────────── */
 function useIsMobile(breakpoint = 768) {
@@ -61,19 +62,19 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
   };
 
   const navLinks = [
-    { href: "#about", label: "About" },
-    { href: "#portfolio", label: "Portfolio" },
-    { href: "#pricing", label: "Pricing" },
-    { href: "#discounts", label: "Discounts" },
-    { href: "#contact", label: "Contact" },
+    { to: "/about", label: "About"     },
+    { to: "/portfolio", label: "Portfolio" },
+    { to: "/pricing", label: 'Pricing' },
+    { to: "/discounts", label: "Discounts" },
+    { to: "/contact", label: "Contact"   },
   ];
 
   const mobileLinks = [
-    { href: "#about", label: "About" },
-    { href: "#portfolio", label: "Portfolio" },
-    { href: "#pricing", label: "Pricing" },
-    { href: "#discounts", label: "Discounts" },
-    { href: "#contact", label: "Contact" },
+    { to: "/about", label: "About"     },
+    { to: "/portfolio", label: "Portfolio" },
+    { to: "/pricing", label: 'Pricing' },
+    { to: "/discounts", label: "Discounts" },
+    { to: "/contact", label: "Contact"   },
   ];
 
   // const scrollTo = (e) => {
@@ -87,7 +88,18 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
     <>
       <nav style={navStyle}>
         {/* Logo */}
-        <a
+        <Link
+          to="/"
+          style={{
+            fontFamily: "var(--display)",
+            fontSize: isMobile ? 20 : 28,
+            letterSpacing: 3,
+            color: "var(--gold)"
+          }}
+        >
+          Alex Sczudlo
+        </Link>
+        {/* <a
           href="#hero"
           onClick={scrollTo}
           style={{
@@ -99,24 +111,29 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
           }}
         >
           Alex Sczudlo
-        </a>
+        </a> */}
 
         {/* Desktop links */}
         {!isMobile && (
           <ul style={{ display: "flex", gap: 36, listStyle: "none", alignItems: "center" }}>
-            {navLinks.map(({ href, label }) => (
-              <li key={href}>
-                <a
-                  href={href}
-                  onClick={scrollTo}
-                  style={linkStyle}
-                  onMouseEnter={(e) => (e.target.style.color = "var(--gold)")}
-                  onMouseLeave={(e) => (e.target.style.color = "var(--lgray)")}
-                >
-                  {label}
-                </a>
-              </li>
-            ))}
+          {navLinks.map(({ to, label }) => (
+            <li key={to}>
+              <Link
+                key={to}
+                to={to}
+                onClick={() => setMobileOpen(false)}
+                style={{
+                  fontFamily: "var(--display)",
+                  fontSize: 36,
+                  letterSpacing: 4,
+                  color: "var(--white)",
+                  textTransform: "uppercase",
+                }}
+              >
+                {label}
+              </Link>
+            </li>
+          ))}
 
             {/* Pricing dropdown */}
             {/* <li

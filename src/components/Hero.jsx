@@ -1,6 +1,7 @@
 import { Btn } from "./shared/UI.jsx";
 import CapturingMachines from '../photos/DSC01250.jpeg';
 import scrollTo from "../utils/scrollTo.js";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -105,26 +106,33 @@ export default function Hero() {
             animation: "fadeUp 0.8s 0.45s ease both",
           }}
         >
-          <Btn
-            href="#portfolio"
-            onClick={scrollTo}
+          <Link
+            to="/portfolio"
+            style={{
+              display: "inline-block", padding: "14px 36px",
+              fontFamily: "var(--body)", fontSize: 11, fontWeight: 600,
+              letterSpacing: 3, textTransform: "uppercase",
+              border: "1px solid var(--gold)",
+              background: "var(--gold)", color: "var(--black)",
+              cursor: "pointer",
+            }}
           >
             View Portfolio
-          </Btn>
-          {/* <Btn href="#contact" outline>
-            Book a Session
-          </Btn> */}
-          <Btn href="#contact"
-            onClick={scrollTo}
-            outline
+          </Link>
+
+          <Link
+            to="/contact"
             style={{
-            borderColor: "var(--gold)",
-            color: "var(--white)",
-            background: "rgba(0,0,0,0.35)",
-            backdropFilter: "blur(4px)",
-          }}>
+              display: "inline-block", padding: "14px 36px",
+              fontFamily: "var(--body)", fontSize: 11, fontWeight: 600,
+              letterSpacing: 3, textTransform: "uppercase",
+              border: "1px solid var(--gold)",
+              background: "rgba(0,0,0,0.35)", color: "var(--white)",
+              backdropFilter: "blur(4px)", cursor: "pointer",
+            }}
+          >
             Book a Session
-          </Btn>
+          </Link>
         </div>
       </div>
 
