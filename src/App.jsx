@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import GLOBAL_CSS from "./styles/global.js";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
@@ -24,7 +24,7 @@ export default function App() {
   }, []);
 
   return (
-    <BrowserRouter basename="/alex-sczudlo">
+    <HashRouter basename="/alex-sczudlo">
         <ScrollToTop />
         <div style={{ minHeight: "100vh", background: "var(--black)" }}>
           <Navbar mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
@@ -38,6 +38,6 @@ export default function App() {
           </Routes>
           <Footer />
         </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
